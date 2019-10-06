@@ -136,27 +136,19 @@ public:
 		return sm->existance();
 	}
 };
-void func() {
+void foo() {
 	SmartPointerReference<int> sr1;
 	sr1.proc(5);
 }
 
 int main()
 {
-	cout << "test automatic destructor in function calling:" << endl;
-	func();
-	SmartPointerReference<int> sr1;
-	SmartPointerReference<int> sr2;
-	SmartPointerReference<int> sr3;
-	SmartPointerReference<string> sr4;
-	//sr1.proc(5);
-	//sr2.proc(7);
-	//sr3.proc(9);
-	//sr4.proc("abcde");
-	sr1 = SmartPointerReference<int>::newSmartPointer(5);
-	sr2 = SmartPointerReference<int>::newSmartPointer(7);
-	sr3 = SmartPointerReference<int>::newSmartPointer(9);
-	sr4 = SmartPointerReference<string>::newSmartPointer("abcde");
+	cout << "test automatic destructor at the end of function call:" << endl;
+	foo();
+	SmartPointerReference<int> sr1 = SmartPointerReference<int>::newSmartPointer(5);
+	SmartPointerReference<int> sr2 = SmartPointerReference<int>::newSmartPointer(7);
+	SmartPointerReference<int> sr3 = SmartPointerReference<int>::newSmartPointer(9);
+	SmartPointerReference<string> sr4 = SmartPointerReference<string>::newSmartPointer("abcde");
 	cout << "addres test:" << endl << sr1.addres() << endl;
 	cout << "test -> operator: " << endl << "the value of string is: " << sr4 << " and the lenth of string is: " << sr4->length() << endl;
 	cout << "test * operator:\n" << *sr1 << endl << "test = operator(reference assignment):" << endl;
@@ -179,5 +171,3 @@ int main()
 	cin >> z;
 	return 0;
 }
-// smart pointer.cpp : Defines the entry point for the console application.
-//
